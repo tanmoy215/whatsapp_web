@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Whatsapp</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body class="indexbody">
+    <header class="index_head">
+        <h1 class="hed">All Chats!</h1>
+        <form action="/chats/new" method="get">
+            <button class="btn">Create New Chat</button>
+        </form>
+    </header>
+    <hr>
+    <main>
+        <% for(chat of chats) { %>
+            <article class="chat"> 
+                <p class="nv"><span class="label">From</span>: <i><%= chat.from %></i></p>
+                <p class="nv"><span class="label">To</span>: <i><%= chat.to %></i></p>
+                <div class="msg"> 
+                    <p><span class="m">Message</span>: <%= chat.msg %></p>
+                    <div class="action-buttons">
+                        <!-- Edit button -->
+                        <form action="/chats/<%= chat._id %>/edit" method="get" style="display:inline;">
+                            <button type="submit" class="bte">Edit</button>
+                        </form>
+                        <!-- Delete button with confirmation -->
+                        <form action="/chats/<%= chat._id %>?_method=DELETE" method="post" style="display:inline;" onsubmit="confirmDeletion(event)">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <p class="crt">Time: <%= chat.Create_at.toString().split(" ")[4] %></p>
+                <p class="crt">Date: <%= chat.Create_at.toString().split(" ").slice(0, 4).join(" ") %></p>
+            </article>
+            <hr>
+        <% } %>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

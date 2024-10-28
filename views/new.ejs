@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Chat</title>
+    <link rel="stylesheet" href="/style.css">
+
+
+    <style>
+        h1 {
+            background-color: #25D366; /* WhatsApp green */
+            color: white; /* White text */
+            text-align: center; /* Centered heading */
+            padding: 20px; /* Space inside the heading */
+            border-radius: 8px; /* Rounded corners */
+            margin-bottom: 30px; /* Space below heading */
+        } 
+    </style>
+
+    
+</head>
+<body class="body_n">
+    <h1>Write New Chats</h1>
+    <div class="form-container">
+        <form action="/chats" method="post">
+            <input type="text" placeholder="Who are you?" name="from" required class="input_n">
+            <textarea name="msg" placeholder="Write your message here..." required></textarea>
+            <input type="text" name="to" placeholder="Add receiver" required class="input_n">
+            <button type="submit" class="btnc">Create Chat</button>
+        </form>
+    </div>
+</body>
+</html>
